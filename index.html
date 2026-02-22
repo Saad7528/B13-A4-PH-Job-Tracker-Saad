@@ -16,13 +16,16 @@
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         *{
             font-family: "Geist", sans-serif;
             /* background-color: #eff5fb; */
 
         }
-    </style>
+    </style>    
 
 </head>
 <body class="bg-[#eff5fb]">
@@ -55,7 +58,7 @@
             <h3 class="text-[20px] font-semibold text-[#002C5C] mb-6">Available Jobs</h3>
             
             <!-- Button Section -->
-            <div class="flex gap-7">
+            <div class="flex gap-2">
                 <button class="btn text-[#64748B] px-4 py-2.5">All</button>
                 <button class="btn text-[#64748B] px-4 py-2.5">Interview</button>
                 <button class="btn text-[#64748B] px-4 py-2.5">Rejected</button>
@@ -74,20 +77,35 @@
 
          <!-- Card section -->
           <section>
-            <div class="bg-white">
-            <h2 class="text-[18px]/[26px] font-semibold text-[#002C5C]">Mobile First Corp</h2>
-            <p>React Native Developer</p>
-            <p>Remote • Full-time • $130,000 - $175,000</p>
-               <p class="bg-blue-300  ">Not Applied</p>
-               <p>Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
-                <div>
-                    <button class="btn btn-outline btn-success">interview</button>
-                    <button class="btn btn-outline btn-error">Rejected</button>
+            <div class="flex justify-between rounded-lg bg-white p-6">
+                <div class="space-y-4">
+                   <div>
+                        <h2 class="text-[18px]/[26px] font-semibold text-[#002C5C]">Mobile First Corp</h2>
+                        <p class="text-base/5 text-[#64748B]">React Native Developer</p>
+                   </div>
+                    
+                   
+                    <p class="text-[14px] text-[#64748B]">Remote • Full-time • $130,000 - $175,000</p>
+                    
+                    
+                    <div>
+                        <p class="bg-blue-300 text-base/5 px-3 w-[20%] py-2 mb-2">Not Applied</p>
+                        <p class="text-base/5 text-[#323B49]">Build cross-platform mobile applications using React Native. Work   on products used by millions of users worldwide.</p>
+                    </div>
+                        <div class="flex gap-2">
+                            <button class="btn btn-outline btn-success">interview</button>
+                            <button id="R-btn" class="btn btn-outline btn-error ">Rejected</button>
+                        </div>
+                </div>
+                
+                <div class="     ">
+                    <img class="mt-5 border-2 rounded-full p-4 border-gray-200" src="./img/Delete.png" alt="">
                 </div>
             </div>
-            <div></div>
           </section>
 
     </main>
+
+    <script src="./script.js"></script>
 </body>
 </html>
