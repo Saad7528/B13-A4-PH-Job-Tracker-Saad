@@ -9,6 +9,8 @@ const rejectedCount = document.getElementById('rejected-result')
 
 // call card container id
 const cardContainer = document.getElementById('cards-container')
+// main tag 
+const mainContainer = document.querySelector('main')
 
 // call side note id
 const sideNote = document.getElementById('side-note')
@@ -71,11 +73,10 @@ function toggleBtnStyle(id){
 const filterSection = document.getElementById('filtered-section')
 
 // interview btn function
-const cardsContainer = document.getElementById('cards-container')
-.addEventListener('click', function(event){
+mainContainer.addEventListener('click', function(event){
 
     // send object to interview array
-    if (event.target.classList.contains('btn-inter')){
+    if (event.target.classList.contains('btn-inter')){        
         const divParentNode = event.target.parentNode.parentNode;
         const jobName = divParentNode.querySelector('.job-name').innerText
         const jobSkill = divParentNode.querySelector('.job-skill').innerText
