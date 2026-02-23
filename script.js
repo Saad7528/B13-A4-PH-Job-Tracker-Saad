@@ -12,21 +12,18 @@ const cardContainer = document.getElementById('cards-container')
 // call side note id
 const sideNote = document.getElementById('side-note')
 
-// set value for total count and side note
-totalCount.innerText = cardContainer.children.length
-sideNote.innerText = cardContainer.children.length
-// value set interview and rejected
-interviewCount.innerText = interviewList.length
-rejectedCount.innerText = rejectedList.length
+// function for calculate job div
+function calculateCount(){
 
-// function calculateCount(){
-//     totalCount.innerText = cardContainer.children.length
-//     sideNote.innerText = cardContainer.children.length
+    // set value for total count and side note
+    totalCount.innerText = cardContainer.children.length
+    sideNote.innerText = cardContainer.children.length
 
-//     interviewCount.innerText = interviewList.length
-//     rejectedCount.innerText = rejectedList.length
-// }
-// calculateCount()
+    // value set interview and rejected
+    interviewCount.innerText = interviewList.length
+    rejectedCount.innerText = rejectedList.length
+}
+calculateCount()
 
 // Call filter buttons
 const allBtn = document.getElementById('btn-all-cards')
@@ -48,6 +45,18 @@ function toggleBtnStyle(id){
     select.classList.add('btn-info','text-[#FFFFFF]')
 
 
+    // condition for show or hide filter section
+    if (id == 'btn-interview-cards'){
+        filterSection.classList.remove('hidden')
+        cardContainer.classList.add('hidden')
+    }else if (id == 'btn-all-cards'){
+        filterSection.classList.add('hidden')
+        cardContainer.classList.remove('hidden')
+    }else if (id == 'btn-rejected-cards') {
+        filterSection.classList.remove('hidden')
+        cardContainer.classList.add('hidden')
+    }
+
 }
 
 // filter section
@@ -58,12 +67,16 @@ const cardsContainer = document.getElementById('cards-container')
 .addEventListener('click', function(event){
     console.log(event.target.classList.contains('btn-inter'))
 
+    // send object to interview array
     if (event.target.classList.contains('btn-inter')){
         const divParentNode = event.target.parentNode.parentNode;
         const jobName = divParentNode.querySelector('.job-name').innerText
         const jobSkill = divParentNode.querySelector('.job-skill').innerText
         const jobStatus = divParentNode.querySelector('.job-status').innerText
         const jobNote = divParentNode.querySelector('.job-note').innerText 
+
+        divParentNode.querySelector('.job-status').innerText = 'INTERVIEW'
+
 
         const cardInfo = {
             jobName, 
@@ -73,14 +86,18 @@ const cardsContainer = document.getElementById('cards-container')
 
         const jobExist = interviewList.find(item => item.jobName == cardInfo.jobName)
         
+        // send object to interview array if already not push
         if (!jobExist){
             interviewList.push(cardInfo)
             console.log('push inter done')
         }
+        // call a function
         renderInterview()
     }
 })
 
+
+// collect info from interview list and create div and set innerHtml
 function renderInterview() {
     filterSection.innerHTML = ''
 
@@ -101,7 +118,7 @@ function renderInterview() {
             
             
             <div>
-                <button class="job-status btn bg-blue-100 text-[#002C5C]">NOT APPLIED</button>
+                <button class="job-status btn bg-blue-100 text-[#002C5C]">INTERVIEW</button>
                 <p class="job-note text-base/5 text-[#323B49] mt-2">Build cross-platform mobile applications using React Native. Work   on products used by millions of users worldwide.</p>
             </div>
                 <div class="flex gap-2">
@@ -117,6 +134,11 @@ function renderInterview() {
                 </svg>
         </div>
     </div> `
+
+    // throw to filter section
+    filterSection.appendChild(div)
+    calculateCount()
+
     }
     
 }
