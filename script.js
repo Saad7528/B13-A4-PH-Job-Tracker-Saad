@@ -69,6 +69,9 @@ function toggleBtnStyle(id){
 
 }
 
+// Empty section
+const empty = getElementById('empty-section')
+
 // filter section
 const filterSection = document.getElementById('filtered-section')
 
@@ -107,6 +110,7 @@ mainContainer.addEventListener('click', function(event){
         // after remove rerender the html
         if (currentStatus == 'btn-rejected-cards') {
             renderReject()
+            calculateCount()
         }
 
         calculateCount()
