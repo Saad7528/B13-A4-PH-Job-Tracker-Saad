@@ -13,7 +13,7 @@ const cardContainer = document.getElementById('cards-container')
 // call side note id
 const sideNote = document.getElementById('side-note')
 
-// function for calculate job div
+// function for calculate job div-----------------------------------------------------
 function calculateCount(){
 
     // set value for total count and side note
@@ -53,13 +53,16 @@ function toggleBtnStyle(id){
         filterSection.classList.remove('hidden')
         cardContainer.classList.add('hidden')
         renderInterview()
+        sideNote.innerText = filterSection.children.length
     }else if (id == 'btn-all-cards'){
         filterSection.classList.add('hidden')
         cardContainer.classList.remove('hidden')
+        calculateCount()
     }else if (id == 'btn-rejected-cards') {
         filterSection.classList.remove('hidden')
         cardContainer.classList.add('hidden')
         renderReject()
+        sideNote.innerText = filterSection.children.length
     }
 
 }
@@ -97,15 +100,14 @@ const cardsContainer = document.getElementById('cards-container')
             interviewList.push(cardInfo)
         }
 
-        // ----------------------------------------------------------
-        // removing the plant from struggling list
+        // removing the Interview item from rejected list
         rejectedList = rejectedList.filter(item => item.jobName != cardInfo.jobName)
 
         // after remove rerender the html
         if (currentStatus == 'btn-rejected-cards') {
             renderReject()
         }
-// -----------------------------------------------------
+
         calculateCount()
 
 
@@ -137,18 +139,13 @@ const cardsContainer = document.getElementById('cards-container')
             console.log('push Rej done')
         }
 
- // -------------------------------------
-        // removing the plant from thriving list
+        // removing the reject item from interview list
         interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName)
 
-        // console.log(thrivingList);
-
-        // after remove rerender the html
+        // rerender the html
         if (currentStatus == "btn-interview-cards") {
             renderInterview();
         }
-        // -----------------------------------------
-
 
         // call a function
         calculateCount()
