@@ -216,7 +216,7 @@ mainContainer.addEventListener('click', function(event){
         
     }
 
-    // Check if the clicked element is the delete button or inside it
+// Condition for delete button
     const deleteBtn = event.target.closest('.delete-btn');
     
     if (deleteBtn) {
@@ -230,22 +230,15 @@ mainContainer.addEventListener('click', function(event){
         interviewList = interviewList.filter(item => item.jobName !== jobName);
         rejectedList = rejectedList.filter(item => item.jobName !== jobName);
 
-        // 3. Remove the card from the DOM
+        // 3. Remove the card from card container
         card.remove();
 
-        // 4. Update all counts and UI states
+        // 4. Update all counts
         calculateCount();
         sideNoteCal();
         emptyCheck();
     }
 })
-
-
-
-
-
-
-
 
 
 // collect info from *interview* list and create div and set innerHtml

@@ -30,44 +30,45 @@
 </head>
 <body class="bg-[#eff5fb]">
     
-    <header class="pt-20 w-[80%] mx-auto sticky top-0 bg-[#eff5fb] pb-2.5">
-        <h1 class="text-[#002C5C] font-bold text-[32px]/[32px] mb-5 ">Job Application Tracker</h1>
+    <header class="md:pt-20 pt-6 md:w-[80%] w-[90%] mx-auto md:sticky md:top-0 bg-[#eff5fb] pb-2.5">
+        <h1 class="text-[#002C5C] font-bold md:text-[32px]/[32px] text-[22px]/[18px] mb-5 ">Job Application Tracker</h1>
 
         <div class="grid grid-cols-3 gap-4">
-            <div class="p-5 bg-white rounded-lg">
+            <div class="md:p-5 p-2 bg-white rounded-lg">
                 <h6 class="text-[14px] font-medium text-[#323B49]">Total</h6>
                 <p id="total-result" class="text-[24px] font-bold text-[#002C5C]">0</p>
             </div>
-            <div class="p-5 bg-white rounded-lg">
+            <div class="md:p-5 p-2 bg-white rounded-lg">
                 <h6 class="text-[14px] font-medium text-[#323B49]">Interview</h6>
                 <p id="interview-result" class="text-[24px] font-bold text-[#10B981]">0</p>
             </div>
-            <div class="p-5 bg-white rounded-lg">
+            <div class="md:p-5 p-2 bg-white rounded-lg">
                 <h6 class="text-[14px] font-medium text-[#323B49]">Rejected</h6>
                 <p id="rejected-result" class="text-[24px] font-bold text-[#EF4444]">0</p>
             </div>
         </div>
     </header>
 
-    <hr class="w-[80%] mx-auto my-10">
+    <hr class="md:w-[80%] w-[90%] mx-auto md:my-10 my-4">
 
-    <main class="w-[80%] mx-auto ">
+    <main class="md:w-[80%] w-[90%] mx-auto ">
         <!--  -->
-        <div class="my-10 flex justify-between">
-            <div>
+        <div class="md:my-10 my-4 ">
+            <div class="flex justify-between">
             <h3 class="text-[20px] font-semibold text-[#002C5C] mb-6">Available Jobs</h3>
+            <p class="text-[16px] font-medium text-[#64748B]"><span id="side-note">0</span> Jobs</p>
             
-            <!-- Button Section -->
-            <div id="btn-container" class="flex gap-2">
-                <button onclick="toggleBtnStyle('btn-all-cards')" id="btn-all-cards" class="text-[#64748B] btn text-[#FFFFFF] px-9 py-2.5 btn-info">ALL</button>
+        </div>
+        <!-- Button Section -->
+<div id="btn-container" class="flex  gap-2">
+                <button onclick="toggleBtnStyle('btn-all-cards')" id="btn-all-cards" class="text-[#64748B] btn text-[#FFFFFF] md:px-9 px-4 py-2.5 btn-info">ALL</button>
                 <button onclick="toggleBtnStyle('btn-interview-cards')" id="btn-interview-cards" class="btn text-[#64748B] px-4 py-2.5">INTERVIEW</button>
                 <button onclick="toggleBtnStyle('btn-rejected-cards')" id="btn-rejected-cards" class="btn text-[#64748B] px-4 py-2.5">REJECTED</button>
             </div>
-        </div>
+        <!-- <div>
 
-        <div>
-            <p class="text-[16px] font-medium text-[#64748B]"><span id="side-note">0</span> Jobs</p>
-        </div>
+            
+        </div> -->
         </div>
 
         <!-- Filtering Section -->
