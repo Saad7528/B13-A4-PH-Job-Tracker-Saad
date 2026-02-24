@@ -28,6 +28,23 @@ function calculateCount(){
 }
 calculateCount()
 
+// function for calculate side notification
+function sideNoteCal(){
+     if (currentStatus == 'btn-interview-cards'){
+            console.log("ami interview te asi")
+            sideNote.innerText = filterSection.children.length  
+
+        }else if (currentStatus == 'btn-all-cards'){
+            sideNote.innerText = cardContainer.children.length
+            console.log('akhon card container dekhabe');
+            
+        }else if (currentStatus == 'btn-rejected-cards'){
+            sideNote.innerText = filterSection.children.length
+            console.log('akhon rejecta achi');   
+        }
+
+}
+
 // Call filter buttons
 const allBtn = document.getElementById('btn-all-cards')
 const interviewBtn = document.getElementById('btn-interview-cards')
@@ -60,6 +77,7 @@ function toggleBtnStyle(id){
         filterSection.classList.add('hidden')
         cardContainer.classList.remove('hidden')
         calculateCount()
+        sideNote.innerText = cardContainer.children.length
     }else if (id == 'btn-rejected-cards') {
         filterSection.classList.remove('hidden')
         cardContainer.classList.add('hidden')
@@ -114,7 +132,8 @@ mainContainer.addEventListener('click', function(event){
         }
 
         calculateCount()
-        sideNote.innerText = filterSection.children.length
+        sideNoteCal()
+
 
 
     }else if (event.target.classList.contains('btn-rej')){
@@ -152,10 +171,9 @@ mainContainer.addEventListener('click', function(event){
         if (currentStatus == "btn-interview-cards") {
             renderInterview();
         }
-
-        // call a function
+        
         calculateCount()
-        sideNote.innerText = filterSection.children.length
+        sideNoteCal()
         
     }
 })
