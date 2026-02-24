@@ -70,7 +70,7 @@ function toggleBtnStyle(id){
 }
 
 // Empty section
-const empty = getElementById('empty-section')
+// const empty = getElementById('empty-section')
 
 // filter section
 const filterSection = document.getElementById('filtered-section')
@@ -114,6 +114,7 @@ mainContainer.addEventListener('click', function(event){
         }
 
         calculateCount()
+        sideNote.innerText = filterSection.children.length
 
 
     }else if (event.target.classList.contains('btn-rej')){
@@ -154,6 +155,7 @@ mainContainer.addEventListener('click', function(event){
 
         // call a function
         calculateCount()
+        sideNote.innerText = filterSection.children.length
         
     }
 })
