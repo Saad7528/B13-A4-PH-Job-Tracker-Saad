@@ -12,10 +12,12 @@ const cardContainer = document.getElementById('cards-container')
 // main tag 
 const mainContainer = document.querySelector('main')
 
+// Empty section
+const emptySection = document.getElementById('empty-section')
 // call side note id
 const sideNote = document.getElementById('side-note')
 
-// function for calculate job div-----------------------------------------------------
+// function for calculate job div
 function calculateCount(){
 
     // set value for total count and side note
@@ -31,16 +33,39 @@ calculateCount()
 // function for calculate side notification
 function sideNoteCal(){
      if (currentStatus == 'btn-interview-cards'){
-            console.log("ami interview te asi")
-            sideNote.innerText = filterSection.children.length  
-
+            sideNote.innerText = filterSection.children.length
+            emptyCheck()
         }else if (currentStatus == 'btn-all-cards'){
             sideNote.innerText = cardContainer.children.length
-            console.log('akhon card container dekhabe');
-            
+            emptyCheck()
         }else if (currentStatus == 'btn-rejected-cards'){
             sideNote.innerText = filterSection.children.length
-            console.log('akhon rejecta achi');   
+            emptyCheck()
+        }
+
+}
+
+
+// empty section check-----------------------------------------------------------
+function emptyCheck(){
+     if (currentStatus == 'btn-interview-cards'){
+            if (filterSection.children.length == 0){
+            emptySection.classList.remove('hidden')    
+        }else if (filterSection.children.length != 0){
+            emptySection.classList.add('hidden')
+        }
+        }else if (currentStatus == 'btn-all-cards'){
+            if (cardContainer.children.length == 0){
+            emptySection.classList.remove('hidden')    
+        }else if (cardContainer.children.length != 0){
+            emptySection.classList.add('hidden')
+        }
+        }else if (currentStatus == 'btn-rejected-cards'){
+            if (filterSection.children.length == 0){
+            emptySection.classList.remove('hidden')    
+        }else if (filterSection.children.length != 0){
+            emptySection.classList.add('hidden')
+        }
         }
 
 }
@@ -73,22 +98,22 @@ function toggleBtnStyle(id){
         cardContainer.classList.add('hidden')
         renderInterview()
         sideNote.innerText = filterSection.children.length
+        emptyCheck()
     }else if (id == 'btn-all-cards'){
         filterSection.classList.add('hidden')
         cardContainer.classList.remove('hidden')
         calculateCount()
         sideNote.innerText = cardContainer.children.length
+        emptyCheck() 
     }else if (id == 'btn-rejected-cards') {
         filterSection.classList.remove('hidden')
         cardContainer.classList.add('hidden')
         renderReject()
         sideNote.innerText = filterSection.children.length
+        emptyCheck()
     }
 
 }
-
-// Empty section
-// const empty = getElementById('empty-section')
 
 // filter section
 const filterSection = document.getElementById('filtered-section')
