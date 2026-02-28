@@ -127,8 +127,8 @@ mainContainer.addEventListener('click', function(event){
 
     // send object to interview array
     if (event.target.classList.contains('btn-inter')){ 
-        console.log('interview clicked');
-        console.log("intrviewList", interviewList);
+        // console.log('interview clicked');
+        // console.log("intrviewList", interviewList);
 
                
         const divParentNode = event.target.parentNode.parentNode;
@@ -166,14 +166,14 @@ mainContainer.addEventListener('click', function(event){
 
         calculateCount()
         sideNoteCal()
-        console.log("intrviewList", interviewList);
+        // console.log("intrviewList", interviewList);
         
 
 
 
     }else if (event.target.classList.contains('btn-rej')){
-        console.log(event.target)
-        console.log("REject", rejectedList);
+        // console.log(event.target)
+        // console.log("REject", rejectedList);
 
 
         const divParentNode = event.target.parentNode.parentNode;
@@ -198,7 +198,7 @@ mainContainer.addEventListener('click', function(event){
         // send object to interview array if already not push
         if (!jobExist){
             rejectedList.push(cardInfo)
-            console.log('push Rej done')
+            // console.log('push Rej done')
         }
 
         // removing the reject item from interview list
@@ -211,7 +211,7 @@ mainContainer.addEventListener('click', function(event){
         
         calculateCount()
         sideNoteCal()
-        console.log("REject", rejectedList);
+        // console.log("REject", rejectedList);
 
         
     }
@@ -292,7 +292,7 @@ function renderReject() {
     filterSection.innerHTML = '';
 
     for (let reject of rejectedList){
-        console.log(reject);
+        // console.log(reject);
         
     let div = document.createElement('div')
     div.className = 'flex justify-between rounded-lg bg-white p-6'
