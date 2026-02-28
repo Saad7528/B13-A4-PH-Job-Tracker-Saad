@@ -128,7 +128,7 @@ mainContainer.addEventListener('click', function(event){
     // send object to interview array
     if (event.target.classList.contains('btn-inter')){ 
         console.log('interview clicked');
-                console.log("intrviewList", interviewList);
+        console.log("intrviewList", interviewList);
 
                
         const divParentNode = event.target.parentNode.parentNode;
@@ -173,7 +173,7 @@ mainContainer.addEventListener('click', function(event){
 
     }else if (event.target.classList.contains('btn-rej')){
         console.log(event.target)
-                console.log("REject", rejectedList);
+        console.log("REject", rejectedList);
 
 
         const divParentNode = event.target.parentNode.parentNode;
@@ -211,35 +211,35 @@ mainContainer.addEventListener('click', function(event){
         
         calculateCount()
         sideNoteCal()
-                        console.log("REject", rejectedList);
+        console.log("REject", rejectedList);
 
         
     }
+})
 
-// Condition for delete button
-    const deleteBtn = event.target.closest('.delete-btn');
-    
-    if (deleteBtn) {
-        console.log("Delete clicked");
+// Card delete condition
+mainContainer.addEventListener('click', function(event) {
 
-        // 1. Find the card element and the Job Name
-        const card = deleteBtn.closest('.flex.justify-between');
-        const jobName = card.querySelector('.job-name').innerText.trim();
+    if (event.target.classList.contains('delete-btn')) {
+        const card = event.target.parentElement;
 
-        // 2. Remove from data arrays
+        const jobName = card.querySelector('.job-name').innerText;
+
+        // interview and reject list update
         interviewList = interviewList.filter(item => item.jobName !== jobName);
         rejectedList = rejectedList.filter(item => item.jobName !== jobName);
 
-        // 3. Remove the card from card container
+        // card delete
         card.remove();
 
-        // 4. Update all counts
+        // update function call
         calculateCount();
         sideNoteCal();
         emptyCheck();
-    }
-})
+        
 
+    }     
+});
 
 // collect info from *interview* list and create div and set innerHtml
 function renderInterview() {
